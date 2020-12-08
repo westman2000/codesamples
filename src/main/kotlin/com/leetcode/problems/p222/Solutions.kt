@@ -1,5 +1,7 @@
 package com.leetcode.problems.p222
 
+import java.util.*
+
 class Solutions {
 
     class TreeNode(var value: Int = 0, var left : Solutions.TreeNode? = null, var right : Solutions.TreeNode? = null)
@@ -56,6 +58,27 @@ class Solutions {
         val missing = root.findMissingCount(height)
 
         return (1 shl (height + 1)) - 1 - missing
+    }
+
+    fun countNodes06(root: TreeNode?): Int {
+        if (root == null) {
+            return 0
+        }
+        val queue = Stack<TreeNode>()
+        queue.add(root)
+        var n = 0
+        while (!queue.isEmpty()) {
+            val item = queue.pop()
+            n++
+            if (item.left != null) {
+                queue.push(item.left)
+            }
+            if (item.right != null) {
+                queue.push(item.right)
+            }
+
+        }
+        return n
     }
 
     tailrec fun TreeNode.height() : Int = 1 + (left?.height() ?: -1)
