@@ -1,2 +1,2 @@
 # codesamples
-Code samples
+Code samples (https://github.com/Java-aid/Hackerrank-Solutions)
